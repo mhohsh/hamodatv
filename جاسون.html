@@ -3,17 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عرض JSON</title>
+    <title>عرض JSON على الإنترنت</title>
 </head>
 <body>
+    <h1>عرض JSON على الإنترنت</h1>
     <pre id="json-container"></pre>
 
     <script>
-        // يمكنك استبدال هذا الجزء بالكود JSON الخاص بك
-        var jsonCode = '{"name": "John", "age": 30, "city": "New York"}';
+        // يمكنك استبدال هذا الجزء برابط ملف JSON الخاص بك
+        var jsonFileUrl = 'https://example.com/path/to/your/jsonfile.json';
 
-        // عرض الJSON في الصفحة
-        document.getElementById('json-container').textContent = JSON.stringify(JSON.parse(jsonCode), null, 2);
+        // جلب محتوى ملف JSON عبر AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', jsonFileUrl, true);
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // عرض الJSON في الصفحة
+                document.getElementById('json-container').textContent = JSON.stringify(JSON.parse(xhr.responseText), null, 2);
+            }
+        };
+        xhr.send();
     </script>
 </body>
 </html>
