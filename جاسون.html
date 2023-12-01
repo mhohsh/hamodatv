@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض JSON</title>
+</head>
+<body>
+    <pre id="json-container"></pre>
+
+    <script>
+        // يمكنك استبدال هذا الجزء بالكود JSON الخاص بك
+        var jsonCode = '{"name": "John", "age": 30, "city": "New York"}';
+
+        // عرض الJSON في الصفحة
+        document.getElementById('json-container').textContent = JSON.stringify(JSON.parse(jsonCode), null, 2);
+    </script>
+</body>
+</html>
